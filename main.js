@@ -7,7 +7,6 @@ const inputScore = document.getElementById('inputScore');
 const player1Btn = document.getElementById('player1Btn');
 const player2Btn = document.getElementById('player2Btn');
 const resetBtn = document.getElementById('resetBtn');
-
 const player1Score = 0;
 const player2Score = 0;
 const winingScore = 5;
