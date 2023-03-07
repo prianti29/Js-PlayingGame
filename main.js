@@ -17,23 +17,35 @@ player1Btn.addEventListener('click', () => {
     // 1. Change Data
    if(!gameOver){
     player1Score ++;
-    if(player1Score === winingScore){
-        gameOver = true;
-        player1Btn.setAttribute('disabled', 'disabled');
-        player2Btn.setAttribute('disabled', 'disabled');
-    }
+    isWinner(player1Score, winingScore);
    }
     // 2.Show changed data working with dom
     player1ScoreDisplay.textContent = player1Score;
 });
+
 player2Btn.addEventListener('click', () => {
     if(!gameOver){
         player2Score ++;
-    if(player2Score === winingScore){
+        isWinner(player2Score, winingScore);
+    }
+    player2ScoreDisplay.textContent = player2Score;
+});
+
+function isWinner(oldScore, winingScore){
+    if(oldScore === winingScore){
         gameOver = true;
         player1Btn.setAttribute('disabled', 'disabled');
         player2Btn.setAttribute('disabled', 'disabled');
     }
-    }
-    player2ScoreDisplay.textContent = player2Score;
+}
+
+resetBtn.addEventListener('click', () =>{
+    player1Score = 0;
+    player2Score = 0;
+    gameOver = false;
+    player1ScoreDisplay.textContent = 0;
+    player2ScoreDisplay.textContent = 0;
+    //after reset button will be enable
+    player1Btn.removeAttribute('disabled'); 
+    player2Btn.removeAttribute('disabled');
 });
